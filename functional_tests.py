@@ -1,29 +1,40 @@
 from selenium import webdriver
+import unittest
 
-browser = webdriver.Firefox()
+class NewVisitorTest(unittest.TestCase):
 
-# User goes to the homepage
-browser.get('http://localhost:8000')
+    def setUp(self) -> None:
+        self.browser = webdriver.Firefox()
 
-# user reads the page title
-assert 'To-Do' in browser.title
+    def tearDown(self) -> None:
+        self.browser.quit
 
-# user invited to enter a to-do item straight away
+    def test_can_start_a_list_and_retrieve_it_later(self):
 
-# user types "feed kitties" into a text box
+        # User goes to the homepage
+        self.browser.get('http://localhost:8000')
 
-# when the user presses enter, the page updates, and now the page lists "feed kitties" as an item
-# in the to-do list
+        # user reads the page title
+        self.assertIn('To-Do', self.browser.title)
+        self.fail('Finish the test!')
 
-# there is still a text box inviting the user to add another item. they enter "clean litter box"
+        # user invited to enter a to-do item straight away
 
-# the page updates again, and now shows both items on their list
+        # user types "feed kitties" into a text box
 
-# the user wonders if the site will remember their list. then they see that the site has generated
-# a unique url for her (there is also some explanatory text to that efffect)
+        # when the user presses enter, the page updates, and now the page lists "feed kitties" as an item
+        # in the to-do list
 
-# the user visits that url and sees their to-do list is still there
+        # there is still a text box inviting the user to add another item. they enter "clean litter box"
 
-# the user exits the page
+        # the page updates again, and now shows both items on their list
 
-browser.quit()
+        # the user wonders if the site will remember their list. then they see that the site has generated
+        # a unique url for her (there is also some explanatory text to that efffect)
+
+        # the user visits that url and sees their to-do list is still there
+
+        # the user exits the page
+
+if __name__ == '__main__':
+    unittest.main()
