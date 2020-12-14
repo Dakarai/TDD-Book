@@ -3,13 +3,14 @@ from selenium.webdriver.common.keys import Keys
 import time
 import unittest
 
+
 class NewVisitorTest(unittest.TestCase):
 
     def setUp(self) -> None:
         self.browser = webdriver.Firefox()
 
     def tearDown(self) -> None:
-        self.browser.quit
+        self.browser.quit()
 
     def test_can_start_a_list_and_retrieve_it_later(self):
 
@@ -46,7 +47,7 @@ class NewVisitorTest(unittest.TestCase):
         # the page updates again, and now shows both items on their list
 
         # the user wonders if the site will remember their list. then they see that the site has generated
-        # a unique url for her (there is also some explanatory text to that efffect)
+        # a unique url for her (there is also some explanatory text to that effect)
 
         # the user visits that url and sees their to-do list is still there
 
