@@ -55,7 +55,7 @@ class NewVisitorTest(LiveServerTestCase):
         self.check_for_row_in_list_table('1: Buy peacock feathers')
         self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
 
-        # She wonders whether this site will rememer her list. Then she sees that the site has generated
+        # She wonders whether this site will remember her list. Then she sees that the site has generated
         # a unique URL for her - there is some explanatory text to that effect
         self.fail('Finish the test!')
         # She visits that URL - her to-do list is still there
